@@ -33,16 +33,14 @@ export default function HomePage() {
           {/* O link interativo também usa o 'musgo' */}
           <Link
             href={`/artigos/${mainArticle.slug}`}
-            className="mt-4 inline-block font-semibold text-musgo transition-colors hover:text-nevoa"
+            className="mt-4 inline-block font-semibold text-nevoa transition-colors hover:text-eucalipto"
           >
             Leia Mais →
           </Link>
         </div>
       </section>
 
-      {/* Seção de Artigos Recentes */}
       <section>
-        {/* O título da seção agora tem uma borda que combina com o Header */}
         <div className="mb-8 border-b-2 border-pedra/30 pb-2">
           <h2 className="font-lora text-3xl font-bold text-ardosia">
             Artigos Recentes
