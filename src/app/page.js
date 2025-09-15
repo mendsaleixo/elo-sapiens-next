@@ -1,24 +1,58 @@
 // src/app/page.jsx
+import Image from "next/image";
+import Link from "next/link";
+import ArticleCard from "@/components/ArticleCard";
+import { articles } from "@/data/mock-articles";
 
 export default function HomePage() {
+  // Separa o primeiro artigo para o Hero e o resto para a grelha
+  const mainArticle = articles[0];
+  const recentArticles = articles.slice(1);
+
   return (
-    // O <main> já está no layout.js, então começamos o conteúdo aqui.
-    <div className="bg-gray-100 p-8 rounded-lg shadow-inner">
-      <h1 className="text-3xl font-bold font-lora text-gray-900 mb-4">
-        Testando a Responsividade do Conteúdo
-      </h1>
-      <p className="mb-4">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
-        Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies
-        sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius
-        a, semper congue, euismod non, mi.
-      </p>
-      <p>
-        Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non
-        fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa,
-        scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue.
-        Ut in risus volutpat libero pharetra tempor.
-      </p>
-    </div>
+    // O <main> e o container principal já estão no layout.js
+    <>
+      {/* Seção Hero */}
+      <section className="relative mb-12 h-96 w-full overflow-hidden rounded-lg md:h-[500px]">
+        {/* Imagem de Fundo */}
+        <Image
+          src={mainArticle.image}
+          alt={`Imagem de capa para o artigo: ${mainArticle.title}`}
+          fill
+          priority
+          className="object-cover"
+        />
+        {/* Overlay para Escurecer e dar Contraste */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+
+        {/* Conteúdo do Hero */}
+        <div className="absolute bottom-0 left-0 p-8 text-white">
+          <span className="rounded-full bg-sky-500 px-3 py-1 text-sm font-semibold">
+            {mainArticle.category}
+          </span>
+          <h1 className="mt-4 max-w-2xl font-lora text-3xl font-extrabold md:text-5xl">
+            {mainArticle.title}
+          </h1>
+          <Link
+            href={`/artigos/${mainArticle.slug}`}
+            className="mt-4 inline-block font-semibold underline decoration-sky-400 decoration-2 underline-offset-4 transition-colors hover:text-sky-300"
+          >
+            Leia Mais →
+          </Link>
+        </div>
+      </section>
+
+      {/* Seção de Artigos Recentes */}
+      <section>
+        <h2 className="mb-8 font-lora text-3xl font-bold text-slate-900">
+          Artigos Recentes
+        </h2>
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {recentArticles.map((article) => (
+            <ArticleCard key={article.id} article={article} />
+          ))}
+        </div>
+      </section>
+    </>
   );
 }
