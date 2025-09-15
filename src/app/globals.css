@@ -3,14 +3,13 @@
 @import "tailwindcss";
 
 @theme {
-  /* --- PALETA "ARDÓSIA & MUSGO" --- */
   --color-ardosia: #273240; /* Cor Principal de Texto */
   --color-nevoa: #f2f2f2; /* Cor Principal de Fundo */
   --color-musgo: #53733d; /* Cor de Destaque Principal */
   --color-eucalipto: #b4bfa8; /* Cor de Acento e Interação */
   --color-pedra: #81878c; /* Cor de Suporte e Hierarquia */
 
-  /* Mapeando nossas fontes para as classes do Tailwind (isto permanece igual) */
+  /* Mapeando nossas fontes para as classes do Tailwind */
   --font-family-lora: var(--font-lora);
   --font-family-inter: var(--font-inter);
 }
