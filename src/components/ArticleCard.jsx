@@ -18,6 +18,7 @@ export default function ArticleCard({ article }) {
           <p className="text-sm font-semibold uppercase tracking-wider text-musgo">
             {article.category}
           </p>
+
           <h3 className="mt-2 font-lora text-lg font-bold text-ardosia">
             {article.title}
           </h3>
