@@ -5,12 +5,16 @@ import ArticleCard from "@/components/ArticleCard";
 import { articles } from "@/data/mock-articles";
 
 export default function HomePage() {
+  // Separa o primeiro artigo para o Hero e o resto para a grelha
   const mainArticle = articles[0];
   const recentArticles = articles.slice(1);
 
   return (
+    // O <main> e o container principal já estão no layout.js
     <>
+      {/* Seção Hero */}
       <section className="relative mb-12 h-96 w-full overflow-hidden rounded-lg md:h-[500px]">
+        {/* Imagem de Fundo */}
         <Image
           src={mainArticle.image}
           alt={`Imagem de capa para o artigo: ${mainArticle.title}`}
@@ -18,29 +22,31 @@ export default function HomePage() {
           priority
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-ardosia/70 via-ardosia/20 to-transparent" />
+        {/* Overlay para Escurecer e dar Contraste */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
 
-        <div className="absolute bottom-0 left-0 p-8 text-nevoa">
-          <span className="rounded-full bg-musgo px-3 py-1 text-sm font-semibold text-nevoa">
+        {/* Conteúdo do Hero */}
+        <div className="absolute bottom-0 left-0 p-8 text-white">
+          <span className="rounded-full bg-sky-500 px-3 py-1 text-sm font-semibold">
             {mainArticle.category}
           </span>
-          <h1 className="mt-4 max-w-2xl font-lora text-3xl font-extrabold md:text-5xl drop-shadow-sm">
+          <h1 className="mt-4 max-w-2xl font-lora text-3xl font-extrabold md:text-5xl">
             {mainArticle.title}
           </h1>
           <Link
             href={`/artigos/${mainArticle.slug}`}
-            className="mt-4 inline-block font-semibold text-eucalipto transition-colors hover:text-nevoa"
+            className="mt-4 inline-block font-semibold underline decoration-sky-400 decoration-2 underline-offset-4 transition-colors hover:text-sky-300"
           >
             Leia Mais →
           </Link>
         </div>
       </section>
+
+      {/* Seção de Artigos Recentes */}
       <section>
-        <div className="mb-8 border-b-2 border-pedra/30 pb-2">
-          <h2 className="font-lora text-3xl font-bold text-ardosia">
-            Artigos Recentes
-          </h2>
-        </div>
+        <h2 className="mb-8 font-lora text-3xl font-bold text-slate-900">
+          Artigos Recentes
+        </h2>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {recentArticles.map((article) => (
             <ArticleCard key={article.id} article={article} />
