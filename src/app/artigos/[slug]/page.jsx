@@ -26,7 +26,7 @@ export default function PaginaDoArtigo({ params }) {
         </p>
       </header>
 
-      <figure className="my-8">
+      <figure className="my-8 max-w-4xl mx-auto">
         <Image
           src={artigo.image}
           alt={`Imagem de capa para o artigo: ${artigo.title}`}
@@ -36,9 +36,10 @@ export default function PaginaDoArtigo({ params }) {
         />
       </figure>
 
-      <div className="mx-auto max-w-3xl">
-        <p>Este é o espaço para o conteúdo do artigo...</p>
-      </div>
+      <div
+        className="prose prose-lg lg:prose-xl mx-auto max-w-3xl"
+        dangerouslySetInnerHTML={{ __html: artigo.content }}
+      />
     </article>
   );
 }

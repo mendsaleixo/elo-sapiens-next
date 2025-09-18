@@ -5,16 +5,12 @@ import ArticleCard from "@/components/ArticleCard";
 import { articles } from "@/data/mock-articles";
 
 export default function HomePage() {
-  // Separa o primeiro artigo para o Hero e o resto para a grelha
   const mainArticle = articles[0];
   const recentArticles = articles.slice(1);
 
   return (
-    // O <main> e o container principal já estão no layout.js
     <>
-      {/* Seção Hero */}
       <section className="relative mb-12 h-96 w-full overflow-hidden rounded-lg md:h-[500px]">
-        {/* Imagem de Fundo */}
         <Image
           src={mainArticle.image}
           alt={`Imagem de capa para o artigo: ${mainArticle.title}`}
@@ -22,10 +18,8 @@ export default function HomePage() {
           priority
           className="object-cover"
         />
-        {/* Overlay para Escurecer e dar Contraste */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
 
-        {/* Conteúdo do Hero */}
         <div className="absolute bottom-0 left-0 p-8 text-white">
           <span className="rounded-full bg-sky-500 px-3 py-1 text-sm font-semibold">
             {mainArticle.category}
@@ -42,7 +36,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Seção de Artigos Recentes */}
       <section>
         <h2 className="mb-8 font-lora text-3xl font-bold text-slate-900">
           Artigos Recentes
