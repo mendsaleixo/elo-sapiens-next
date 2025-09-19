@@ -1,15 +1,16 @@
 /* src/app/globals.css */
 
 @import "tailwindcss";
+@plugin '@tailwindcss/typography'; /* <-- Ativa o plugin aqui */
 
 @theme {
-  --color-ardosia: #273240; /* Cor Principal de Texto */
-  --color-nevoa: #f2f2f2; /* Cor Principal de Fundo */
-  --color-musgo: #53733d; /* Cor de Destaque Principal */
-  --color-eucalipto: #b4bfa8; /* Cor de Acento e Interação */
-  --color-pedra: #81878c; /* Cor de Suporte e Hierarquia */
+  /* As nossas cores e fontes personalizadas */
+  --color-ardosia: #273240;
+  --color-nevoa: #F2F2F2;
+  --color-musgo: #53733D;
+  --color-eucalipto: #B4BFA8;
+  --color-pedra: #81878C;
 
-  /* Mapeando nossas fontes para as classes do Tailwind */
   --font-family-lora: var(--font-lora);
   --font-family-inter: var(--font-inter);
 }

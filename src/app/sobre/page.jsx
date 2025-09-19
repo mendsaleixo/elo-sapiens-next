@@ -2,8 +2,7 @@
 
 export default function PaginaSobre() {
   return (
-    // Usamos a classe 'prose' para estilizar automaticamente o nosso conteúdo
-    <div className="prose prose-lg lg:prose-xl mx-auto">
+    <div className="prose prose-lg lg:prose-xl mx-auto py-8">
       <h1 className="font-lora text-ardosia">Sobre o Elo Sapiens</h1>
       <p>
         O que nos conecta? Que fio invisível costura as descobertas de nossos
