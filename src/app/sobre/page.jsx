@@ -1,9 +1,24 @@
 // src/app/sobre/page.jsx
+import Image from "next/image";
+import logo from "/public/images/Elo_about.png";
 
 export default function PaginaSobre() {
   return (
-    <div className="prose prose-lg lg:prose-xl mx-auto py-8">
-      <h1 className="font-lora text-ardosia">Sobre o Elo Sapiens</h1>
+    <div className="prose prose-lg lg:prose-xl prose-justify mx-auto py-8">
+      <figure>
+        <Image
+          src={logo}
+          alt="Logo do Elo Sapiens, digital humana e circuito digital envolvidos."
+          width={1200}
+          height={600}
+          className="rounded-lg object-contain w-full h-auto aspect-video max-h-80"
+        />
+        <figcaption className="text-center text-sm text-pedra mt-2">
+          O conhecimento como ponte entre gerações.
+        </figcaption>
+      </figure>
+
+      <h1 className="font-lora text-ardosia">Sobre</h1>
       <p>
         O que nos conecta? Que fio invisível costura as descobertas de nossos
         ancestrais às tecnologias que moldam nosso futuro? O Elo Sapiens nasce
