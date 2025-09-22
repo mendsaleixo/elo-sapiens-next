@@ -19,22 +19,34 @@ export default function Header() {
         <nav>
           <ul className="flex items-center space-x-6 text-xl">
             <li>
-              <Link href="#" className="hover:text-pedra transition-colors">
+              <Link
+                href="/categorias/raizes"
+                className="hover:text-pedra transition-colors"
+              >
                 Raízes
               </Link>
             </li>
             <li>
-              <Link href="#" className="hover:text-pedra transition-colors">
+              <Link
+                href="/categorias/horizontes"
+                className="hover:text-pedra transition-colors"
+              >
                 Horizontes
               </Link>
             </li>
             <li>
-              <Link href="#" className="hover:text-pedra transition-colors">
+              <Link
+                href="/categorias/simbiose"
+                className="hover:text-pedra transition-colors"
+              >
                 Simbose
               </Link>
             </li>
             <li>
-              <Link href="#" className="hover:text-pedra transition-colors">
+              <Link
+                href="/categorias/prisma"
+                className="hover:text-pedra transition-colors"
+              >
                 Prisma
               </Link>
             </li>
