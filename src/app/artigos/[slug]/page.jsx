@@ -1,16 +1,25 @@
 // src/app/artigos/[slug]/page.jsx
 
-import { articles } from "@/data/mock-articles.js";
 import { notFound } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link"; // ✅ CORREÇÃO 2: Importamos o componente Link
 
-export default function PaginaDoArtigo({ params }) {
-  const slugDaURL = params.slug;
-  const artigo = articles.find((p) => p.slug === slugDaURL);
-
-  if (!artigo) {
+// ...a função buscarArtigoPeloSlug permanece a mesma...
+async function buscarArtigoPeloSlug(slug) {
+  const resposta = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/posts/${slug}`,
+    { cache: "no-store" }
+  );
+  if (!resposta.ok) {
     notFound();
   }
+  return resposta.json();
+}
+
+export default async function PaginaDoArtigo(props) {
+  const { params } = await props;
+
+  const artigo = await buscarArtigoPeloSlug(params.slug);
 
   return (
     <article className="py-8">
@@ -22,7 +31,14 @@ export default function PaginaDoArtigo({ params }) {
           {artigo.title}
         </h1>
         <p className="mt-6 text-base text-pedra">
-          Por Autor Fictício · 17 de Setembro de 2025
+          Por{" "}
+          <Link
+            href={`/autores/${artigo.authorSlug}`}
+            className="text-musgo hover:underline"
+          >
+            {artigo.authorName}
+          </Link>{" "}
+          · 17 de Setembro de 2025
         </p>
       </header>
 
@@ -37,7 +53,7 @@ export default function PaginaDoArtigo({ params }) {
       </figure>
 
       <div
-        className="prose prose-lg lg:prose-xl mx-auto max-w-3xl"
+        className="prose prose-lg lg:prose-xl mx-auto max-w-3xl prose-justify"
         dangerouslySetInnerHTML={{ __html: artigo.content }}
       />
     </article>

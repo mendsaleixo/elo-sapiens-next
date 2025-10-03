@@ -2,9 +2,29 @@
 import Image from "next/image";
 import Link from "next/link";
 import ArticleCard from "@/components/ArticleCard";
-import { articles } from "@/data/mock-articles";
 
-export default function HomePage() {
+// Criamos uma função para buscar os dados da nossa nova API
+async function buscarArtigos() {
+  // Fazemos uma chamada 'fetch' para o nosso próprio endpoint de API.
+  // A opção { cache: 'no-store' } garante que os dados sejam sempre frescos durante o desenvolvimento.
+  const resposta = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/posts`, {
+    cache: "no-store",
+  });
+
+  // Verificamos se a chamada à API foi bem-sucedida
+  if (!resposta.ok) {
+    throw new Error("Falha ao buscar artigos");
+  }
+
+  // Convertemos a resposta para JSON
+  return resposta.json();
+}
+
+// A nossa página agora precisa de ser 'async' para poder esperar ('await') a busca de dados
+export default async function HomePage() {
+  // Chamamos a nossa função de busca e esperamos pelo resultado
+  const articles = await buscarArtigos();
+
   const mainArticle = articles[0];
   const recentArticles = articles.slice(1);
 
@@ -18,18 +38,18 @@ export default function HomePage() {
           priority
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ardosia/70 via-ardosia/20 to-transparent" />
 
-        <div className="absolute bottom-0 left-0 p-8 text-white">
-          <span className="rounded-full bg-sky-500 px-3 py-1 text-sm font-semibold">
+        <div className="absolute bottom-0 left-0 p-8 text-nevoa">
+          <span className="rounded-full bg-musgo px-3 py-1 text-sm font-semibold text-nevoa">
             {mainArticle.category}
           </span>
-          <h1 className="mt-4 max-w-2xl font-lora text-3xl font-extrabold md:text-5xl">
+          <h1 className="mt-4 max-w-2xl font-lora text-3xl font-extrabold md:text-5xl drop-shadow-sm">
             {mainArticle.title}
           </h1>
           <Link
             href={`/artigos/${mainArticle.slug}`}
-            className="mt-4 inline-block font-semibold underline decoration-sky-400 decoration-2 underline-offset-4 transition-colors hover:text-sky-300"
+            className="mt-4 inline-block font-semibold text-musgo transition-colors hover:text-nevoa"
           >
             Leia Mais →
           </Link>
@@ -37,9 +57,11 @@ export default function HomePage() {
       </section>
 
       <section>
-        <h2 className="mb-8 font-lora text-3xl font-bold text-slate-900">
-          Artigos Recentes
-        </h2>
+        <div className="mb-8 border-b-2 border-pedra/30 pb-2">
+          <h2 className="font-lora text-3xl font-bold text-ardosia">
+            Artigos Recentes
+          </h2>
+        </div>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {recentArticles.map((article) => (
             <ArticleCard key={article.id} article={article} />

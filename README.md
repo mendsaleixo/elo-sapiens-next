@@ -1,36 +1,96 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Elo Sapiens - Blog Pessoal Full-Stack
 
-## Getting Started
+![Status do Projeto](https://img.shields.io/badge/status-em%20desenvolvimento-green)
+![Tecnologia Principal](https://img.shields.io/badge/Next.js-14-black?logo=next.js)
+![Estilização](https://img.shields.io/badge/Tailwind_CSS-3-blue?logo=tailwind-css)
 
-First, run the development server:
+![Screenshot da Aplicação](https://i.imgur.com/link-para-sua-imagem.png)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 📖 Sobre o Projeto
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Elo Sapiens** é um projeto de blog full-stack desenvolvido como parte de um estudo prático focado em tecnologias web modernas e workflows de desenvolvimento profissionais. A plataforma foi desenhada para ser um espaço para explorar as conexões entre história, ciência, tecnologia e meio ambiente, com uma interface minimalista e focada na experiência de leitura.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Este projeto foi construído do zero, abrangendo desde a configuração inicial do ambiente, passando pela criação de componentes reutilizáveis, até a implementação de uma API RESTful para gerenciamento de conteúdo.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## ✨ Funcionalidades Implementadas
 
-## Learn More
+- **Interface Responsiva:** Design "Mobile-First" garantindo uma experiência de usuário consistente em todos os dispositivos.
+- **Roteamento Dinâmico:** Geração de páginas de artigo, categoria e autor de forma dinâmica com base na URL (Next.js App Router).
+- **Renderização no Servidor (SSR):** Páginas pré-renderizadas no servidor para melhor performance e SEO.
+- **API RESTful (CRUD):** Backend integrado para gerenciar artigos.
+  - `GET /api/posts`: Retorna todos os artigos.
+  - `GET /api/posts/[slug]`: Retorna um artigo específico.
+  - `POST /api/posts`: Cria um novo artigo, incluindo upload de imagem.
+  - _(Em desenvolvimento: Endpoints PUT e DELETE para atualizar e apagar artigos)._
+- **Armazenamento em Filesystem:** Artigos são criados e salvos como arquivos Markdown (`.md`) com frontmatter, simulando uma arquitetura Git-based CMS.
+- **Paginação:** Em páginas de categoria, os artigos são listados em páginas para melhor navegação.
+- **Seção de Administração:** Área para criar novos artigos através de um formulário.
 
-To learn more about Next.js, take a look at the following resources:
+## 🛠️ Stack Tecnológica
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Frontend:**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+  - **[React](https://react.dev/)**: Biblioteca para construção da UI.
+  - **[Next.js](https://nextjs.org/)**: Framework React para produção (App Router, SSR, API Routes).
+  - **[Tailwind CSS](https://tailwindcss.com/)**: Framework de estilização Utility-First.
+    - `@tailwindcss/typography`: Plugin para estilização automática de texto (`prose`).
 
-## Deploy on Vercel
+- **Backend:**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+  - **[Node.js](https://nodejs.org/)**: Ambiente de execução do JavaScript no servidor.
+  - **Next.js API Routes**: Para a construção da API RESTful.
+  - **Módulo `fs`**: Para manipulação de arquivos no servidor.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Ferramentas e Workflow:**
+  - **Git & GitHub**: Para versionamento de código e workflow com Feature Branches.
+  - **`npm`**: Gerenciador de dependências.
+  - **`nvm`**: Gerenciador de versão do Node.js.
+  - **ESLint**: Ferramenta de linting para qualidade de código.
+
+## 🚀 Como Rodar o Projeto Localmente
+
+Siga os passos abaixo para executar o projeto na sua máquina.
+
+1.  **Clone o repositório:**
+
+    ```bash
+    git clone https://github.com/mendsaleixo/elo-sapiens-next.git
+    cd elo-sapiens
+    ```
+
+2.  **Instale as dependências:**
+
+    ```bash
+    npm install
+    ```
+
+3.  **Crie o arquivo de ambiente:**
+
+    - Crie um arquivo chamado `.env.local` na raiz do projeto.
+    - Adicione a seguinte linha dentro dele:
+
+    ```
+    NEXT_PUBLIC_API_URL=http://localhost:3000
+    ```
+
+4.  **Inicie o servidor de desenvolvimento:**
+
+    ```bash
+    npm run dev
+    ```
+
+5.  Abra [http://localhost:3000](http://localhost:3000) no seu navegador para ver o resultado.
+
+## 🎯 Objetivos de Aprendizado
+
+Este projeto foi uma jornada prática para solidificar os seguintes conceitos:
+
+- **Construir uma aplicação Full-Stack** do início ao fim com uma única stack tecnológica.
+- **Aplicar um workflow de Git profissional**, simulando um ambiente de trabalho em equipa.
+- **Separar as responsabilidades** entre Frontend (consumo de dados) e Backend (fornecimento de dados).
+- **Entender na prática** os conceitos de Rotas Dinâmicas, Componentes Reutilizáveis e Estado em React.
+- **Implementar uma API RESTful** com operações CRUD, o pilar de muitas aplicações web.
+
+## 📄 Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
