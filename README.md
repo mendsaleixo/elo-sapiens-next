@@ -6,7 +6,7 @@
 
 ![Screenshot da Aplicação](https://i.imgur.com/link-para-sua-imagem.png)
 
-## 📖 Sobre o Projeto
+## Sobre o Projeto
 
 **Elo Sapiens** é um projeto de blog full-stack desenvolvido como parte de um estudo prático focado em tecnologias web modernas e workflows de desenvolvimento profissionais. A plataforma foi desenhada para ser um espaço para explorar as conexões entre história, ciência, tecnologia e meio ambiente, com uma interface minimalista e focada na experiência de leitura.
 
@@ -26,7 +26,7 @@ Este projeto foi construído do zero, abrangendo desde a configuração inicial 
 - **Paginação:** Em páginas de categoria, os artigos são listados em páginas para melhor navegação.
 - **Seção de Administração:** Área para criar novos artigos através de um formulário.
 
-## 🛠️ Stack Tecnológica
+## Stack Tecnológica
 
 - **Frontend:**
 
@@ -47,7 +47,7 @@ Este projeto foi construído do zero, abrangendo desde a configuração inicial 
   - **`nvm`**: Gerenciador de versão do Node.js.
   - **ESLint**: Ferramenta de linting para qualidade de código.
 
-## 🚀 Como Rodar o Projeto Localmente
+## Como Rodar o Projeto Localmente
 
 Siga os passos abaixo para executar o projeto na sua máquina.
 
@@ -81,7 +81,7 @@ Siga os passos abaixo para executar o projeto na sua máquina.
 
 5.  Abra [http://localhost:3000](http://localhost:3000) no seu navegador para ver o resultado.
 
-## 🎯 Objetivos de Aprendizado
+## Objetivos de Aprendizado
 
 Este projeto foi uma jornada prática para solidificar os seguintes conceitos:
 
@@ -91,6 +91,7 @@ Este projeto foi uma jornada prática para solidificar os seguintes conceitos:
 - **Entender na prática** os conceitos de Rotas Dinâmicas, Componentes Reutilizáveis e Estado em React.
 - **Implementar uma API RESTful** com operações CRUD, o pilar de muitas aplicações web.
 
-## 📄 Licença
+## Licença
 
 Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
+
